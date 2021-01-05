@@ -3,7 +3,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const fs = require("fs");
-const dbJSON = require("./db.json");
+let dbJSON = require("./db.json");
 const path = require("path");
 
 // Sets up the Express App
@@ -62,13 +62,12 @@ app.post("/api/notes", function(req, res) {
 
 
 app.delete("/api/notes/:id", function (req, res) {
-  res.send("DELETE Request Called");
   console.log(req.params.id);
   const noteId = req.params.id;
-  const newNotes = dbJSON.filter(note => 
+  dbJSON = dbJSON.filter(note => 
     {return note.id !== noteId});
-  fs.writeFileSync("./db.json", JSON.stringify(newNotes));
-  res.json(newNotes);
+  fs.writeFileSync("./db.json", JSON.stringify(dbJSON));
+  res.json(dbJSON);
   
 
 });
