@@ -60,6 +60,16 @@ app.post("/api/notes", function(req, res) {
   });
 });
 
+
+app.delete("/api/notes/:id", function (req, res) {
+  res.send("DELETE Request Called");
+  console.log(req.params.id);
+  const noteId = req.params.id;
+  console.log(dbJSON)
+  dbJSON.filter(note => note.id !== noteId)
+
+});
+
 app.get("*", function(req, res) {
   res.send("Sending you the homepage");
 });
