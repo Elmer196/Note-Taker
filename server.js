@@ -65,8 +65,11 @@ app.delete("/api/notes/:id", function (req, res) {
   res.send("DELETE Request Called");
   console.log(req.params.id);
   const noteId = req.params.id;
-  console.log(dbJSON)
-  dbJSON.filter(note => note.id !== noteId)
+  const newNotes = dbJSON.filter(note => 
+    {return note.id !== noteId});
+  fs.writeFileSync("./db.json", JSON.stringify(newNotes));
+  res.json(newNotes);
+  
 
 });
 
