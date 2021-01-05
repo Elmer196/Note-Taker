@@ -1,35 +1,13 @@
-# How can we save data to our app?
+# Note Taker
 
-## Description
-  * One way can do this is save it to a file. This code is a proof of concept of how we can save data to a file and read data.
+URL: https://notetakerelmer.herokuapp.com/
+
+The note taker app gives the user the ability to write, save, and delete notes
+
+Uses express as a back end server
+
+<img width="960" alt="note1" src="https://user-images.githubusercontent.com/70598209/103607367-57f03b80-4ede-11eb-9aa6-c47f2f525785.PNG">
+<img width="960" alt="note2" src="https://user-images.githubusercontent.com/70598209/103607369-59216880-4ede-11eb-9e9f-9da0ef31ec1e.PNG">
+<img width="960" alt="note3" src="https://user-images.githubusercontent.com/70598209/103607370-59216880-4ede-11eb-85eb-26231b2a2d84.PNG">
 
 
-# Make request to read data
-```
-  Request GET => http://localhost:3000/note
-
-  Response: 200
-  [
-    {
-        "title": "Christmas List",
-        "text": "PS5",
-        "id": "e0178edc-f46f-4b8d-a386-4b422f4fb390"
-    }
-  ]
-```
-
-# Make post request to save:
-```
-  Request POST => http://localhost:3000/note
-  {
-      "title": "Christmas List",
-      "text": "PS5"
-  }
-
-  Response: 200
-  {
-    "title": "Christmas List",
-    "text": "PS5",
-    "id": "e0178edc-f46f-4b8d-a386-4b422f4fb390"
-  }
-```
